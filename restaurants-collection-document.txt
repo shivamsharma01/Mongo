@@ -1,0 +1,45 @@
+// here is one document from restaurants collection which is used in examples to understand common db commands
+
+{
+    "_id" : ObjectId("5a924b58d5784f2aa30384ed"),
+    "address" : {
+            "building" : "589",
+            "coord" : [
+                    -73.960243,
+                    40.65913
+            ],
+            "street" : "Flatbush Avenue",
+            "zipcode" : "11225"
+    },
+    "borough" : "Brooklyn",
+    "cuisine" : "Caribbean",
+    "grades" : [
+            {
+                    "date" : ISODate("2014-11-13T00:00:00Z"),
+                    "grade" : "B",
+                    "score" : 17
+            },
+            {
+                    "date" : ISODate("2013-10-23T00:00:00Z"),
+                    "grade" : "A",
+                    "score" : 7
+            },
+            {
+                    "date" : ISODate("2013-05-14T00:00:00Z"),
+                    "grade" : "B",
+                    "score" : 22
+            },
+            {
+                    "date" : ISODate("2012-09-17T00:00:00Z"),
+                    "grade" : "B",
+                    "score" : 19
+            },
+            {
+                    "date" : ISODate("2012-02-23T00:00:00Z"),
+                    "grade" : "B",
+                    "score" : 23
+            }
+    ],
+    "name" : "Trinidad Ali'S Roti Shop #2",
+    "restaurant_id" : "41036561"
+}

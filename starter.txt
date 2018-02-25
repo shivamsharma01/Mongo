@@ -1,0 +1,40 @@
+Install MongoDB Community Edition
+
+copy this in shell and hit enter
+msiexec.exe /q /i mongodb-win32-x86_64-2008plus-ssl-3.6.0-signed.msi ^
+            INSTALLLOCATION="C:\Program Files\MongoDB\Server\3.6.0\" ^
+            ADDLOCAL="all"
+
+========================================
+Run MongoDB Community Edition
+    Set up the MongoDB environment.
+        MongoDB requires a data directory to store all data.MongoDB’s default data directory path is the absolute path \data\db on the
+        drive from which you start MongoDB. Create this folder by running the following command in a Command Prompt:
+
+        md \data\db
+    
+    Start MongoDB
+        To start MongoDB, run mongod.exe. For example, from the Command Prompt:
+        "C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe"
+
+    Connect to MongoDB
+        To connect to MongoDB through the mongo.exe shell, open another Command Prompt.
+        
+        "C:\Program Files\MongoDB\Server\3.6\bin\mongo.exe"
+    
+
+=========================================
+Import Dataset
+    mongoimport --db test --collection restaurants --drop --file ~/downloads/primer-dataset.json (run this command from mongodb bin folder)
+
+
+common commands
+show dbs
+use xxxx // xxxx = db name
+
+
+Insert Data
+db.collection.insert({})    // although id is a must have field in a document, it is not mandatory to provide while inserting the document
+                            // in which case the mongo will create it for you
+
+

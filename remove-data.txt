@@ -1,0 +1,23 @@
+Remove Data
+    You can use the remove() method to remove documents from a collection. The method takes a conditions document that determines 
+    the documents to remove.
+
+    Remove All Documents That Match a Condition
+        db.restaurants.remove( { "borough": "Manhattan" } )
+
+    justOne
+        By default, the remove() method removes all documents that match the remove condition. Use the justOne option to limit the remove operation to only one of the matching documents.
+        db.restaurants.remove( { "borough": "Queens" }, { justOne: true } )
+
+    Remove All Documents
+        db.restaurants.remove( { } )
+
+    Drop a Collection
+        The remove all operation only removes the documents from the collection. The collection itself, as well as any indexes for the
+        collection, remain. To remove all documents from a collection, it may be more efficient to drop the entire collection, including the 
+        indexes, and then recreate the collection and rebuild the indexes. Use the drop() method to drop a collection, including any indexes.
+
+        db.restaurants.drop()
+
+            Upon successful drop of the collection, the operation returns true.
+

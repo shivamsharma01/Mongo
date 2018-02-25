@@ -1,0 +1,61 @@
+Update Data
+    Update Specific Fields
+        To change a field value, MongoDB provides update operators, such as $set to modify values. Some update operators, such as $set,
+        will create the field if the field does not exist. 
+
+        Update Top-Level Fields
+            The following operation updates the first document with name equal to "Juni", using the $set operator to update the cuisine field
+            and the $currentDate operator to update the lastModified field with the current date.
+
+            db.restaurants.update(
+                { "name" : "Juni" },
+                {
+                $set: { "cuisine": "American (New)" },
+                $currentDate: { "lastModified": true }
+                }
+            )
+
+        Update an Embedded Field
+            To update a field within an embedded document, use the dot notation. When using the dot notation, enclose the whole 
+            dotted field name in quotes. The following updates the street field in the embedded address document.
+
+            db.restaurants.update(
+                { "restaurant_id" : "41156888" },
+                { $set: { "address.street": "East 31st Street" } }
+            )
+        
+        Update Multiple Documents
+            By default, the update() method updates a single document. To update multiple documents, use the multi option in the update() method. 
+            db.restaurants.update(
+                { "address.zipcode": "10016", cuisine: "Other" },
+                {
+                    $set: { cuisine: "Category To Be Determined" },
+                    $currentDate: { "lastModified": true }
+                },
+                { multi: true}
+            )
+
+        Replace a Document
+            To replace the entire document except for the _id field, pass an entirely new document as the second argument to the update() method.
+            The replacement document can have different fields from the original document. In the replacement document, you can omit the
+            _id field since the _id field is immutable. If you do include the _id field, it must be the same value as the existing value.
+
+            db.restaurants.update(
+                { "restaurant_id" : "41704620" },
+                {
+                    "name" : "Vella 2",
+                    "address" : {
+                            "coord" : [ -73.9557413, 40.7720266 ],
+                            "building" : "1480",
+                            "street" : "2 Avenue",
+                            "zipcode" : "10075"
+                    }
+                }
+            )
+
+        Additional Information
+            If no document matches the update condition, the default behavior of the update method is to do nothing. 
+            By specifying the upsert option to true, the update operation either updates matching document(s) or inserts a new document
+            if no matching document exists. In the MongoDB Manual, see update().
+
+        
